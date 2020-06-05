@@ -11,15 +11,17 @@ export const debouncerTest = () => {
   const [isSearching, setIsSearching] = useState(false);
 
   const searchUsers = value => {
-    fetch(`https://api.github.com/search/users?q=${value}`)
-      .then(res => res.json())
-      .then(res => {
-        setIsSearching(false);
-        setUsers(res.items);
-      })
-      .catch(_ => {
-        alert("An error occured");
-      });
+    if (value) {
+      fetch(`https://api.github.com/search/users?q=${value}`)
+        .then(res => res.json())
+        .then(res => {
+          setIsSearching(false);
+          setUsers(res.items);
+        })
+        .catch(_ => {
+          alert("An error occured");
+        });
+    }
   };
 
   return (
