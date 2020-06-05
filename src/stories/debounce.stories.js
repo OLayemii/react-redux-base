@@ -21,6 +21,9 @@ export const debouncerTest = () => {
         .catch(_ => {
           alert("An error occured");
         });
+    } else {
+      setUsers([]);
+      setIsSearching(false);
     }
   };
 
