@@ -16,9 +16,6 @@ const Login = () => {
       <p>
         <Link to="/some-unknown-url">Error 404 page</Link>
       </p>
-      <p>
-        <Link to="/debounce-demo">See Debounce Demo</Link>
-      </p>
     </div>
   );
 };

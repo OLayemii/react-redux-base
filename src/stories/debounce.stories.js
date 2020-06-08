@@ -21,9 +21,6 @@ export const debouncerTest = () => {
         .catch(_ => {
           alert("An error occured");
         });
-    } else {
-      setUsers([]);
-      setIsSearching(false);
     }
   };
 
@@ -41,7 +38,12 @@ export const debouncerTest = () => {
 
           // Could just set state here and monitor changes in an effect before debouncing.
           setSearchValue(value);
-          debounce(() => searchUsers(value));
+          if (value) {
+            debounce(() => searchUsers(value));
+          } else {
+            setIsSearching(false);
+            setUsers([]);
+          }
         }}
       />
 
